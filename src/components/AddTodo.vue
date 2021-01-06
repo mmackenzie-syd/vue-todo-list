@@ -21,7 +21,16 @@ export default {
     }
   },
   methods: {
-    
+    addToDo(e) {
+      e.preventDefault();
+      const newTodo = {
+        title: this.title,
+        completed: false
+      }
+      // send up to parent
+      this.$emit('add-todo', newTodo);
+      this.title = '';
+    }
   }
 }
 </script>
